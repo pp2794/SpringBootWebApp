@@ -31,6 +31,7 @@ public class ShipwreckController {
 	public Shipwreck get(@PathVariable long id) {
 		
 		//return ShipwreckStub.get(id);
+		System.out.println(shipwreckRepo.getOne(id));
 		return shipwreckRepo.getOne(id);
 	}
 	
@@ -59,10 +60,5 @@ public class ShipwreckController {
 		shipwreckRepo.deleteById(id);
 		return shipwreck;
 	}
-	
-	
-	
-	
-	
 	
 }
