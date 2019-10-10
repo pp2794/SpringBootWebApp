@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.piy.springBootWebApp.model.Shipwreck;
@@ -59,6 +60,13 @@ public class ShipwreckController {
 		Shipwreck shipwreck = shipwreckRepo.getOne(id);
 		shipwreckRepo.deleteById(id);
 		return shipwreck;
+	}
+	
+	//To test request parameters. E.g. http://localhost:8080/api/v1/add?a=1&b=1
+	@RequestMapping(value="add",method=RequestMethod.GET)
+	public int addNumbers(@RequestParam int a, @RequestParam int b) {
+		
+		return a+b;
 	}
 	
 }
